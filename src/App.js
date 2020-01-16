@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SubApp from './SubApp';
+import { SubspaceProvider } from 'react-redux-subspace'
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
         >
           Learn React
         </a>
+        <SubspaceProvider mapState={(state) => state.subCounter} namespace="subCounter">
+          <SubApp />
+        </SubspaceProvider>
       </header>
     </div>
   );
